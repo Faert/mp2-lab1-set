@@ -89,17 +89,15 @@ TSet TSet::operator+(const TSet &s) // объединение
 
 TSet TSet::operator+(const int Elem) // объединение с элементом
 {
-    TSet Temp(MaxPower);
-    BitField.SetBit(Elem);
-    Temp.BitField = BitField;
+    TSet Temp(*this);
+    Temp.BitField.SetBit(Elem);
     return Temp;
 }
 
 TSet TSet::operator-(const int Elem) // разность с элементом
 {
-    TSet Temp(MaxPower);
-    BitField.ClrBit(Elem);
-    Temp.BitField = BitField;
+    TSet Temp(*this);
+    Temp.BitField.ClrBit(Elem);
     return Temp;
 }
 
@@ -122,7 +120,14 @@ TSet TSet::operator~(void) // дополнение
 
 istream &operator>>(istream &istr, TSet &s) // ввод
 {
-    istr >> s.BitField;
+    //Ожидается, что ввод закончится переходом на новую строку сразу после ввода последнего числа(1 3\n, а не 1 3 \n).
+    int elem;
+    while(cin.peek() != '\n')
+    {
+        istr >> elem;
+        s.InsElem(elem);
+    }
+    
     return istr;
 }
 

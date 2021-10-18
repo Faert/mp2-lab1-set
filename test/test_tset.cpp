@@ -326,3 +326,29 @@ TEST(TSet, can_combine_several_tset) //My tset test
 
 	EXPECT_EQ(expSet, set1 + set2 + set3);
 }
+
+/*TEST(TSet, check_input) //My tset test
+{
+	const int size = 4;
+	TSet set(size), set1(size);
+	// set = {1, 3}
+	set.InsElem(1);
+	set.InsElem(3);
+	std::cout << "Input: 1 3\n";
+	std::cin >> set1;
+
+	EXPECT_EQ(set, set1);
+}*/
+
+TEST(TSet, plus_and_minus_operator_doest_change_object) //My tset test
+{
+	const int size = 4;
+	TSet set(size), set1(size);
+	// set = {1, 3}
+	set.InsElem(1);
+	set.InsElem(3);
+	set1 = set + 2;
+	set - 1;
+
+	EXPECT_EQ(set + 2, set1);
+}
