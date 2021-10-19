@@ -352,3 +352,16 @@ TEST(TSet, plus_and_minus_operator_doest_change_object) //My tset test
 
 	EXPECT_EQ(set + 2, set1);
 }
+
+/*TEST(TSet, input_eq_output) //My tset test
+{
+	const int size = 4;
+	TSet set(size), set1(size);
+	// set = {1, 3}
+	set.InsElem(1);
+	set.InsElem(3);
+	cout << set;
+	cin >> set1;
+
+	EXPECT_EQ(set, set1);
+}*/
