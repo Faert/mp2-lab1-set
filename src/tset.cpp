@@ -90,14 +90,14 @@ TSet TSet::operator+(const TSet &s) // объединение
 TSet TSet::operator+(const int Elem) // объединение с элементом
 {
     TSet Temp(*this);
-    Temp.BitField.SetBit(Elem);
+    Temp.InsElem(Elem);
     return Temp;
 }
 
 TSet TSet::operator-(const int Elem) // разность с элементом
 {
     TSet Temp(*this);
-    Temp.BitField.ClrBit(Elem);
+    Temp.DelElem(Elem);
     return Temp;
 }
 
